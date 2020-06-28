@@ -1,21 +1,21 @@
-#My Personal Jungle Garden: A Journey
+# My Personal Jungle Garden: A Journey
 
 My Personal Jungle Garden is an app that allows users to keep logs of their plant journey. I came up with this idea because I wanted to record my planting and gardening experiences. As a relatively new plant mom, I am still experimenting with understanding which types of plants are suitable for the different areas in my current living space. Plant lovers and gardeners would benefit from this app as it tracks their plant growing history, which could help them with future plant growths.
 
 
-##Planning Story
+## Planning Story
 
 I approached this project by setting up a well-thought-out plan so that as I am building my application, I can focus on each step more clearly. I started by creating user stories and wireframes. Then, I focused on creating a schedule that laid out bite-size goals that were clear and attainable.
 
-**Schedule:**
-DAY 1: Planning
+### Schedule:
+**DAY 1: Planning**
 - User stories
 - Wireframes
 - Schedule
 - Start on README
 
 
-Day 2: Back-end
+**Day 2: Back-end**
 - User model and authentication in user routes (CRUD/cURL requests)
   - User model/Schema
   - POST request for sign-up and sign-in
@@ -30,7 +30,7 @@ Day 2: Back-end
   - DELETE request for deleting a plant and its info
 
 
-Day 3: Front-end
+**Day 3: Front-end**
 - HTML/CSS
   - Sign-up Page
   - Sign-in Page
@@ -49,7 +49,7 @@ Day 3: Front-end
 - Debugging
 
 
-Day 4: Front-end
+**Day 4: Front-end**
 - HTML/CSS
   - Add New Plant Page
   - Home Page with all added plants
@@ -62,7 +62,7 @@ Day 4: Front-end
 - Debugging
 
 
-Day 5: Front-end
+**Day 5: Front-end**
 - HTML/CSS
   - Plant Update Page
   - Plant Delete Page
@@ -73,12 +73,12 @@ Day 5: Front-end
 - Debugging
 
 
-Day 6: Documentation/Deployment
+**Day 6: Documentation/Deployment**
 - Update README for both repos
 - Deploy and add link to GitHub
 
 
-##User Stories
+## User Stories
 
 As a user, I want to be able to sign up for a user account.
 As a user, I want to be able to sign in to my user account.
@@ -91,7 +91,7 @@ As a user, I want to be able to edit my plant information.
 As a user, I want to be able to delete plants.
 
 
-##Technologies Used:
+## Technologies Used:
 
 - JavaScript
 - jQuery
@@ -109,12 +109,12 @@ As a user, I want to be able to delete plants.
 - Handlebars
 
 
-##Images
-###My Personal Jungle Garden Wireframes:
+## Images
+### My Personal Jungle Garden Wireframes:
 
 ![Project2-Wireframes](https://user-images.githubusercontent.com/53062479/85951867-ebdfba00-b933-11ea-8008-52e8889d3824.png)
 
-###ERD:
 
+### ERD:
 
 ![Project2-ERD](https://user-images.githubusercontent.com/53062479/85951910-234e6680-b934-11ea-89b7-c2632aa3394c.png)
