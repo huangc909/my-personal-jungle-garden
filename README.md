@@ -1,4 +1,4 @@
-# My Personal Jungle Garden: A Journey
+# My Personal Jungle Garden: An App for Plant Lovers
 
 My Personal Jungle Garden is an app that allows users to keep logs of their plant journey. I came up with this idea because I wanted to record my planting and gardening experiences. As a relatively new plant mom, I am still experimenting with understanding which types of plants are suitable for the different areas in my current living space. Plant lovers and gardeners would benefit from this app as it tracks their plant growing history, which could help them with future plant growths.
 
@@ -80,15 +80,15 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 
 ## User Stories
 
-As a user, I want to be able to sign up for a user account.
-As a user, I want to be able to sign in to my user account.
-As a user, I want to be able to change my password for my account.
-As a user, I want to be able to sign out of my user account.
-As a user, I want to be able to add my plants to my account.
-As a user, I want to be able to see all of the plants that I have added to my collection.
-As a user, I want to be able to record information about my plants (the name, nickname, date acquired, additional notes, and logs)
-As a user, I want to be able to edit my plant information.
-As a user, I want to be able to delete plants.
+- As a user, I want to be able to sign up for a user account.
+- As a user, I want to be able to sign in to my user account.
+- As a user, I want to be able to change my password for my account.
+- As a user, I want to be able to sign out of my user account.
+- As a user, I want to be able to add my plants to my account.
+- As a user, I want to be able to see all of the plants that I have added to my collection.
+- As a user, I want to be able to record information about my plants (the name, nickname, date acquired, additional notes, and logs)
+- As a user, I want to be able to edit my plant information.
+- As a user, I want to be able to delete plants.
 
 
 ## Technologies Used:
