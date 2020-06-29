@@ -112,7 +112,8 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 ## Images
 ### My Personal Jungle Garden Wireframes:
 
-![Project2-ERD](https://media.git.generalassemb.ly/user/28180/files/53117300-b9f5-11ea-83e8-7bf71f949491)
+![Project2-Wireframes](https://media.git.generalassemb.ly/user/28180/files/a256a400-b9f3-11ea-88cc-e3c55052c28f)
 
 
 ### ERD:
+![Project2-ERD](https://media.git.generalassemb.ly/user/28180/files/53117300-b9f5-11ea-83e8-7bf71f949491)
