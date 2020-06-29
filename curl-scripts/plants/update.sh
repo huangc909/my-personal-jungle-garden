@@ -5,7 +5,6 @@ curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
-  --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "plant": {
       "name": "'"${NAME}"'",
@@ -13,7 +12,7 @@ curl "${API}${URL_PATH}/${ID}" \
       "dateAcquired": "'"${DATEACQ}"'",
       "additionalNotes": "'"${NOTES}"'",
       "log": "'"${LOG}"'",
-      "userId": "'"${USER_ID}"'"
+      "plantCollectionId": "'"${PC_ID}"'"
     }
   }'
 

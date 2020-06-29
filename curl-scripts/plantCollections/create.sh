@@ -7,6 +7,7 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
     "plantCollection": {
-      "name": "'"${NAME}"'"
+      "name": "'"${NAME}"'",
+      "owner": "'"${OWNER}"'"
     }
   }'

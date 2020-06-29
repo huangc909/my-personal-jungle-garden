@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const User = require('./../models/user')
+const PlantCollection = require('./../models/plantCollection')
 const handle404 = require('./../../lib/custom_errors')
 // const Plant = require('./../models/plant')
 
 // GET all plants
 router.get('/plants', (req, res, next) => {
-  User.find()
+  PlantCollection.find()
     .populate('plants')
     .then(plants =>
       res.json({plants: plants}))
@@ -16,21 +16,15 @@ router.get('/plants', (req, res, next) => {
 
 // CREATE new plant info
 router.post('/plants', (req, res, next) => {
-  // Make variable for plant data
   const plantData = req.body.plant
-  // Make variable for user Id
-  const userId = plantData.userId
-  // Find sser by id
-  User.findById(userId)
-    // if successful pass userId
+  const plantCollectionId = plantData.plantCollectionId
+  PlantCollection.findById(plantCollectionId)
     .then(handle404)
-    .then((user) => {
-      // push plant data into user's plant property
-      user.plants.push(plantData)
-      // save user's plant data
-      return user.save()
+    .then((plantCollection) => {
+      plantCollection.plants.push(plantData)
+      return plantCollection.save()
     })
-    .then(user => res.json({user: user}))
+    .then(plantCollection => res.json({plantCollection: plantCollection}))
     .catch(next)
 })
 
@@ -38,15 +32,15 @@ router.post('/plants', (req, res, next) => {
 router.patch('/plants/:id', (req, res, next) => {
   const plantId = req.params.id
   const plantData = req.body.plant
-  const userId = plantData.userId
+  const plantCollectionId = plantData.plantCollectionId
 
-  User.findById(userId)
+  PlantCollection.findById(plantCollectionId)
     .then(handle404)
-    .then(user => {
-      user.plants.id(plantId).set(plantData)
-      return user.save()
+    .then(plantCollection => {
+      plantCollection.plants.id(plantId).set(plantData)
+      return plantCollection.save()
     })
-    .then(user => res.status(200).json({user: user}))
+    .then(plantCollection => res.status(200).json({plantCollection: plantCollection}))
     .catch(next)
 })
 
@@ -54,13 +48,13 @@ router.patch('/plants/:id', (req, res, next) => {
 router.delete('/plants/:id', (req, res, next) => {
   const plantId = req.params.id
   const plantData = req.body.plant
-  const userId = plantData.userId
+  const plantCollectionId = plantData.plantCollectionId
 
-  User.findById(userId)
+  PlantCollection.findById(plantCollectionId)
     .then(handle404)
-    .then(user => {
-      user.plants.id(plantId).remove()
-      return user.save()
+    .then(plantCollection => {
+      plantCollection.plants.id(plantId).remove()
+      return plantCollection.save()
     })
     .then(() => res.sendStatus(204))
     .catch(next)

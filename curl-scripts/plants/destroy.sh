@@ -7,7 +7,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "plant": {
-      "userId": "'"${USER_ID}"'"
+      "plantCollectionId": "'"${PC_ID}"'"
     }
   }'
 

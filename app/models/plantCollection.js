@@ -7,7 +7,11 @@ const plantCollectionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  plants: [plantSchema]
+  plants: [plantSchema],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 }, {
   timestamps: true
 })
