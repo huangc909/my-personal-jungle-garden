@@ -1,45 +1,65 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
 
 const PlantCollection = require('./../models/plantCollection')
-const handle404 = require('./../../lib/custom_errors')
-// const Plant = require('./../models/plant')
+
+const customErrors = require('./../../lib/custom_errors')
+const handle404 = customErrors.handle404
+
+const requireOwnership = customErrors.requireOwnership
+
+const removeBlanks = require('../../lib/remove_blank_fields')
+
+const requireToken = passport.authenticate('bearer', { session: false })
 
 // GET all plant collections
-router.get('/plantCollections', (req, res, next) => {
+router.get('/plantCollections', requireToken, (req, res, next) => {
   PlantCollection.find()
-    .then(plantCollections =>
-      res.json({plantCollections: plantCollections}))
+    .populate('plantCollections')
+    .then(plantCollections => {
+      return plantCollections.map(plantCollection => plantCollection.toObject())
+    })
+    .then(plantCollections => res.status(200).json({plantCollections: plantCollections}))
     .catch(next)
 })
 
 // CREATE new plant collection
-router.post('/plantCollections', (req, res, next) => {
+router.post('/plantCollections', requireToken, (req, res, next) => {
+  req.body.plantCollection.owner = req.user.id
   const plantCollectionData = req.body.plantCollection
+
   PlantCollection.create(plantCollectionData)
     .then(plantCollection => res.status(201).json({plantCollection: plantCollection}))
     .catch(next)
 })
 
 // UPDATE plant collection
-router.patch('/plantCollections/:id', (req, res, next) => {
+router.patch('/plantCollections/:id', requireToken, removeBlanks, (req, res, next) => {
+  delete req.body.plantCollection.owner
   const id = req.params.id
   const plantCollectionData = req.body.plantCollection
 
   PlantCollection.findById(id)
     .then(handle404)
-    .then(plantCollection => plantCollection.updateOne(plantCollectionData))
+    .then(plantCollection => {
+      requireOwnership(req, plantCollection)
+      return plantCollection.updateOne(plantCollectionData)
+    })
     .then(plantCollection => res.status(200).json({plantCollection: plantCollection}))
     .catch(next)
 })
 
 // DELETE plant collection
-router.delete('/plantCollections/:id', (req, res, next) => {
+router.delete('/plantCollections/:id', requireToken, (req, res, next) => {
   const id = req.params.id
 
   PlantCollection.findById(id)
     .then(handle404)
-    .then(plantCollection => plantCollection.remove())
+    .then(plantCollection => {
+      requireOwnership(req, plantCollection)
+      plantCollection.deleteOne()
+    })
     .then(() => res.sendStatus(204))
     .catch(next)
 })
