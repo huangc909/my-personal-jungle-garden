@@ -18,6 +18,10 @@ const plantSchema = new mongoose.Schema({
   log: {
     type: String,
     required: true
+  },
+  plantCollection: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'PlantCollection'
   }
 }, {
   timestamps: true

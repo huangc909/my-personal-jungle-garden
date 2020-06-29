@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-const plantSchema = require('./plant')
-
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -12,8 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  token: String,
-  plants: [plantSchema]
+  token: String
 }, {
   timestamps: true,
   toObject: {

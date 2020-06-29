@@ -3,6 +3,7 @@ const router = express.Router()
 
 const User = require('./../models/user')
 const handle404 = require('./../../lib/custom_errors')
+// const Plant = require('./../models/plant')
 
 // GET all plants
 router.get('/plants', (req, res, next) => {
