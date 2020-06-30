@@ -5,6 +5,7 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "plant": {
       "name": "'"${NAME}"'",
@@ -12,7 +13,8 @@ curl "${API}${URL_PATH}" \
       "dateAcquired": "'"${DATEACQ}"'",
       "additionalNotes": "'"${NOTES}"'",
       "log": "'"${LOG}"'",
-      "plantCollectionId": "'"${PC_ID}"'"
+      "plantCollectionId": "'"${PC_ID}"'",
+      "owner": "'"${OWNER}"'"
     }
   }'
 

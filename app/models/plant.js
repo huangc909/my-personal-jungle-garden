@@ -19,9 +19,10 @@ const plantSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  plantCollection: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'PlantCollection'
+    ref: 'User',
+    required: true
   }
 }, {
   timestamps: true

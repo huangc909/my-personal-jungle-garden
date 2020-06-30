@@ -15,7 +15,7 @@ const requireToken = passport.authenticate('bearer', { session: false })
 
 // GET all plant collections
 router.get('/plantCollections', requireToken, (req, res, next) => {
-  PlantCollection.find()
+  PlantCollection.find({'owner': req.user.id})
     .populate('plantCollections')
     .then(plantCollections => {
       return plantCollections.map(plantCollection => plantCollection.toObject())
@@ -30,7 +30,7 @@ router.post('/plantCollections', requireToken, (req, res, next) => {
   const plantCollectionData = req.body.plantCollection
 
   PlantCollection.create(plantCollectionData)
-    .then(plantCollection => res.status(201).json({plantCollection: plantCollection}))
+    .then(plantCollection => res.status(201).json({plantCollection: plantCollection.toObject()}))
     .catch(next)
 })
 
