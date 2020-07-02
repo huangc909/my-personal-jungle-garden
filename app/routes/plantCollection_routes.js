@@ -24,6 +24,15 @@ router.get('/plantCollections', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// SHOW one plant collection
+router.get('/plantCollections/:id', requireToken, (req, res, next) => {
+  const id = req.params.id
+  PlantCollection.find(id)
+    .then(handle404)
+    .then(plantCollection => res.status(200).json({ plantCollection: plantCollection.toObject() }))
+    .catch(next)
+})
+
 // CREATE new plant collection
 router.post('/plantCollections', requireToken, (req, res, next) => {
   req.body.plantCollection.owner = req.user.id
