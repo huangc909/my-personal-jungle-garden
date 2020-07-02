@@ -27,9 +27,10 @@ router.get('/plantCollections', requireToken, (req, res, next) => {
 // SHOW one plant collection
 router.get('/plantCollections/:id', requireToken, (req, res, next) => {
   const id = req.params.id
-  PlantCollection.find(id)
+
+  PlantCollection.findById(id)
     .then(handle404)
-    .then(plantCollection => res.status(200).json({ plantCollection: plantCollection.toObject() }))
+    .then(plantCollection => res.status(200).json({plantCollection: plantCollection.toObject()}))
     .catch(next)
 })
 
