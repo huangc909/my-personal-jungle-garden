@@ -1,23 +1,14 @@
 const mongoose = require('mongoose')
 
-const logSchema = require('./log')
-
-const plantSchema = new mongoose.Schema({
-  name: {
+const logSchema = new mongoose.Schema({
+  date: {
     type: String,
     required: true
   },
-  nickName: {
-    type: String
-  },
-  dateAcquired: {
+  entry: {
     type: String,
     required: true
   },
-  additionalNotes: {
-    type: String
-  },
-  log: [logSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -27,4 +18,4 @@ const plantSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = plantSchema
+module.exports = logSchema
