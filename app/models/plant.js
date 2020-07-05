@@ -17,7 +17,7 @@ const plantSchema = new mongoose.Schema({
   additionalNotes: {
     type: String
   },
-  log: [logSchema],
+  logs: [logSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
