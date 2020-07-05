@@ -14,25 +14,34 @@ const removeBlanks = require('../../lib/remove_blank_fields')
 const requireToken = passport.authenticate('bearer', { session: false })
 
 // GET all plant info
-// router.get('/plants', requireToken, (req, res, next) => {
-//   PlantCollection.find({'owner': req.user.id})
-//     .populate('plants')
-//     .then(plants => {
-//       return plants.map(plant => plant.toObject())
-//     })
-//     .then(plants => res.status(200).json({ plantCollection: plants }))
-//     .catch(next)
-// })
 
-// SHOW a plant info
-// router.get('/plants/:id', requireToken, (req, res, next) => {
-//   const plantId = req.params.id
-//
-//   PlantCollection.findById(plantId)
-//     .then(handle404)
-//     .then(plant => res.status(200).json({ plant: plant.toObject() }))
-//     .catch(next)
-// })
+router.get('/plantCollections/:plantCollectionId/plants', requireToken, (req, res, next) => {
+  const plantCollectionId = req.params.plantCollectionId
+
+  PlantCollection.findById(plantCollectionId)
+    .populate('plants')
+    .then(plants => {
+      return plants.map(plant => plant.toObject())
+    })
+    .then(plants => res.status(200).json({plants: plants}))
+    .catch(next)
+})
+
+// GET one plant info
+
+router.get('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, (req, res, next) => {
+  console.log(req.body)
+  const plantCollectionId = req.params.plantCollectionId
+  const plantId = req.params.plantId
+  PlantCollection.findById(plantCollectionId)
+    .then(handle404)
+    .then(plantCollection => {
+      let plant = plantCollection.plants.id(plantId)
+      plant = handle404(plant)
+      res.status(200).json({plant: plant})
+    })
+    .catch(next)
+})
 
 // CREATE new plant info
 router.post('/plants', requireToken, (req, res, next) => {
