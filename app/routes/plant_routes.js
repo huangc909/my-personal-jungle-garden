@@ -30,7 +30,7 @@ router.get('/plantCollections/:plantCollectionId/plants', requireToken, (req, re
 // GET one plant info
 
 router.get('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, (req, res, next) => {
-  console.log(req.body)
+  
   const plantCollectionId = req.params.plantCollectionId
   const plantId = req.params.plantId
   PlantCollection.findById(plantCollectionId)
@@ -60,11 +60,12 @@ router.post('/plants', requireToken, (req, res, next) => {
 })
 
 // UPDATE plant info
-router.patch('/plants/:id', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, removeBlanks, (req, res, next) => {
   delete req.body.plant.owner
-  const plantId = req.params.id
+
+  const plantId = req.params.plantId
   const plantData = req.body.plant
-  const plantCollectionId = plantData.plantCollectionId
+  const plantCollectionId = req.params.plantCollectionId
 
   PlantCollection.findById(plantCollectionId)
     .then(handle404)

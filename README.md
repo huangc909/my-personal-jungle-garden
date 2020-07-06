@@ -5,77 +5,15 @@ My Personal Jungle Garden is an app that allows users to keep logs of their plan
 
 ## Planning Story
 
-I approached this project by setting up a well-thought-out plan so that as I am building my application, I can focus on each step more clearly. I started by creating user stories and wireframes. Then, I focused on creating a schedule that laid out bite-size goals that were clear and attainable.
+Since this was a full-stack project, I first approached this project by writing user stories and creating wireframes. Then, I set each user story and component of the wireframe as a small goal.
 
-### Schedule:
-**DAY 1: Planning**
-- User stories
-- Wireframes
-- Schedule
-- Start on README
+Once I had my plan clearly laid out, I began to work on the back end API. I started with the writing the user and plant collection models/schemas. Then, I created the curl-scripts as well as the user and plant collections routes for CRUD.
 
+After testing out that I can successfully request all the components for CRUD, I went to the client-side application and began to work on front-end, which you can read about here (https://github.com/huangc909/my-personal-jungle-garden-client).
 
-**Day 2: Back-end**
-- User model and authentication in user routes (CRUD/cURL requests)
-  - User model/Schema
-  - POST request for sign-up and sign-in
-  - PATCH request for change password
-  - DELETE request for sign-out
+Once I had the MVP completed for one user to many collections, I created a plants subdocument so that one plant collection can have many plants. After completing the show, create, update, delete requests in the back-end, I once again went back to my front-end app to add the plants feature.
 
-- Plant sub document and plant routes (CRUD/cURL requests)
-  - Plant Schema
-  - GET request for all added plants
-  - POST request for adding a new plant and its info
-  - PATCH request for updating a plant's info
-  - DELETE request for deleting a plant and its info
-
-
-**Day 3: Front-end**
-- HTML/CSS
-  - Sign-up Page
-  - Sign-in Page
-  - Home Page
-  - Plant Collections Box
-  - Drop-Down Menu
-  - Change Password Page
-  - Sign-out Page
-
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX POST request to API for sign-up
-  - AJAX POST request to API for sign-in
-  - AJAX PATCH request to API for change password
-  - AJAX PATCH request to API for sign-out
-
-- Debugging
-
-
-**Day 4: Front-end**
-- HTML/CSS
-  - Add New Plant Page
-  - Home Page with all added plants
-  - Plant Info Page
-
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX POST request to add a new plant and its info
-  - AJAX GET request to API for all plants
-
-- Debugging
-
-
-**Day 5: Front-end**
-- HTML/CSS
-  - Plant Update Page
-  - Plant Delete Page
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX PATCH request to update a plant and its info
-  - AJAX DELETE request to delete a plant and its info
-
-- Debugging
-
-
-**Day 6: Documentation/Deployment**
-- Update README for both repos
-- Deploy and add link to GitHub
+This back-end part of the app gave me a clearer understanding on how to draw relationships among resources as well as store/updating resources in the database using CRUD requests.
 
 
 ## User Stories
@@ -93,27 +31,22 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 
 ## Technologies Used:
 
-- JavaScript
-- jQuery
-- cURL
-- API
 - Express
 - Mongoose
 - MongoDB
-- API
-- JSON
-- HTML
-- CSS
-- Sass
-- Bootstrap
-- Handlebars
+- Node.js
 
+
+### Unsolved Goals
+
+- Add another sub document feature that includes logs for users to keep track of their plant care journey.
 
 ## Images
 ### My Personal Jungle Garden Wireframes:
 
-![Project2-Wireframes](https://media.git.generalassemb.ly/user/28180/files/a256a400-b9f3-11ea-88cc-e3c55052c28f)
+![Project2-Wireframes](https://user-images.githubusercontent.com/53062479/86547397-e1f72180-bf06-11ea-9d17-0b9de6cfddf6.jpg)
 
 
 ### ERD:
-![Project2-ERD](https://media.git.generalassemb.ly/user/28180/files/53117300-b9f5-11ea-83e8-7bf71f949491)
+
+![Project2-ERD](https://user-images.githubusercontent.com/53062479/86547712-e07a2900-bf07-11ea-9412-72062629f7e0.jpg)

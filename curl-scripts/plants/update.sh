@@ -1,7 +1,7 @@
 API="http://localhost:4741"
-URL_PATH="/plants"
+URL_PATH="/plantCollections/${PC_ID}/plants/${ID}"
 
-curl "${API}${URL_PATH}/${ID}" \
+curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
@@ -12,7 +12,7 @@ curl "${API}${URL_PATH}/${ID}" \
       "nickName": "'"${NICKNAME}"'",
       "dateAcquired": "'"${DATEACQ}"'",
       "additionalNotes": "'"${NOTES}"'",
-      "plantCollectionId": "'"${PC_ID}"'",
+      "log": "'"${LOG}"'",
       "owner": "'"${OWNER}"'"
     }
   }'
