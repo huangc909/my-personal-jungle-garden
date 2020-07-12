@@ -30,7 +30,6 @@ router.get('/plantCollections/:plantCollectionId/plants', requireToken, (req, re
 // GET one plant info
 
 router.get('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, (req, res, next) => {
-  
   const plantCollectionId = req.params.plantCollectionId
   const plantId = req.params.plantId
   PlantCollection.findById(plantCollectionId)
