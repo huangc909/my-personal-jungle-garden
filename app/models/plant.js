@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-// const logSchema = require('./log')
+const logSchema = require('./log')
 
 const plantSchema = new mongoose.Schema({
   name: {
@@ -17,10 +17,7 @@ const plantSchema = new mongoose.Schema({
   additionalNotes: {
     type: String
   },
-  log: {
-    type: String,
-    required: true
-  },
+  logs: [logSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

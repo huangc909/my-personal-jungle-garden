@@ -12,7 +12,6 @@ curl "${API}${URL_PATH}" \
       "nickName": "'"${NICKNAME}"'",
       "dateAcquired": "'"${DATEACQ}"'",
       "additionalNotes": "'"${NOTES}"'",
-      "log": "'"${LOG}"'",
       "owner": "'"${OWNER}"'"
     }
   }'
