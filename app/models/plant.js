@@ -17,7 +17,7 @@ const plantSchema = new mongoose.Schema({
   additionalNotes: {
     type: String
   },
-  logs: {
+  log: {
     type: String,
     required: true
   },

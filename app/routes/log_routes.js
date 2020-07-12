@@ -25,14 +25,19 @@ const requireToken = passport.authenticate('bearer', { session: false })
 // })
 
 // SHOW a plant info
-// router.get('/plants/:id', requireToken, (req, res, next) => {
-//   const plantId = req.params.id
-//
-//   PlantCollection.findById(plantId)
-//     .then(handle404)
-//     .then(plant => res.status(200).json({ plant: plant.toObject() }))
-//     .catch(next)
-// })
+router.get('/plantCollections/:plantCollectionId/plants/:plantId/logs/:logId', requireToken, (req, res, next) => {
+  const plantCollectionId = req.params.plantCollectionId
+  // const plantId = req.params.plantId
+  const logId = req.params.logId
+  PlantCollection.findById(plantCollectionId)
+    .then(handle404)
+    .then(plantCollection => {
+      let log = plantCollection.plants.logs.id(logId)
+      log = handle404(log)
+      res.status(200).json({log: log})
+    })
+    .catch(next)
+})
 
 // CREATE new plant info
 router.post('/logs', requireToken, (req, res, next) => {
@@ -51,17 +56,17 @@ router.post('/logs', requireToken, (req, res, next) => {
 })
 
 // UPDATE plant info
-router.patch('/plants/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.plant.owner
-  const plantId = req.params.id
-  const plantData = req.body.plant
-  const plantCollectionId = plantData.plantCollectionId
+router.patch('/plantCollections/:plantCollectionId/plants/:plantId/logs/:logId', requireToken, removeBlanks, (req, res, next) => {
+  delete req.body.log.owner
+  const logId = req.params.logId
+  const logData = req.body.log
+  const plantCollectionId = req.params.plantCollectionId
 
   PlantCollection.findById(plantCollectionId)
     .then(handle404)
     .then(plantCollection => {
       requireOwnership(req, plantCollection)
-      plantCollection.plants.id(plantId).set(plantData)
+      plantCollection.plants.logs.id(logId).set(logData)
       return plantCollection.save()
     })
     .then(plantCollection => res.status(200).json({plantCollection: plantCollection}))
@@ -69,16 +74,16 @@ router.patch('/plants/:id', requireToken, removeBlanks, (req, res, next) => {
 })
 
 // DELETE plant info
-router.delete('/plants/:id', requireToken, (req, res, next) => {
-  const plantId = req.params.id
-  const plantData = req.body.plant
-  const plantCollectionId = plantData.plantCollectionId
+router.delete('/logs/:id', requireToken, (req, res, next) => {
+  const logId = req.params.id
+  const logData = req.body.log
+  const plantCollectionId = logData.plantCollectionId
 
   PlantCollection.findById(plantCollectionId)
     .then(handle404)
     .then(plantCollection => {
       requireOwnership(req, plantCollection)
-      plantCollection.plants.id(plantId).remove()
+      plantCollection.plants.logs.id(logId).remove()
       return plantCollection.save()
     })
     .then(() => res.sendStatus(204))
