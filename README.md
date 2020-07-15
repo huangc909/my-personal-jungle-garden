@@ -1,6 +1,11 @@
 # My Personal Jungle Garden: An App for Plant Lovers
 
-Visit app: https://huangc909.github.io/my-personal-jungle-garden-client/
+## Links
+- API: https://afternoon-hamlet-91716.herokuapp.com
+- Client Application: https://huangc909.github.io/my-personal-jungle-garden-client/
+- Client Application Repository: https://github.com/huangc909/my-personal-jungle-garden-client
+
+
 
 ## Back-end Portion of the App
 
@@ -46,11 +51,6 @@ This back-end part of the app gave me a clearer understanding on how to draw rel
 - Add another sub document feature that includes logs for users to keep track of their plant care journey.
 
 ## Images
-### My Personal Jungle Garden Wireframes:
-
-![Project2-Wireframes](https://user-images.githubusercontent.com/53062479/86547397-e1f72180-bf06-11ea-9d17-0b9de6cfddf6.jpg)
-
-
 ### ERD:
 
 ![Project2-ERD](https://user-images.githubusercontent.com/53062479/86547712-e07a2900-bf07-11ea-9412-72062629f7e0.jpg)
