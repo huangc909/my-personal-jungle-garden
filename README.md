@@ -1,7 +1,7 @@
 # My Personal Jungle Garden: An App for Plant Lovers
 
 ## Links
-- API: https://afternoon-hamlet-91716.herokuapp.com
+- API: https://afternoon-hamlet-91716.herokuapp.com/
 - Client Application: https://huangc909.github.io/my-personal-jungle-garden-client/
 - Client Application Repository: https://github.com/huangc909/my-personal-jungle-garden-client
 
