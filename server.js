@@ -8,6 +8,7 @@ const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
 const plantCollectionRoutes = require('./app/routes/plantCollection_routes')
 const plantRoutes = require('./app/routes/plant_routes')
+const logRoutes = require('./app/routes/log_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -67,6 +68,7 @@ app.use(exampleRoutes)
 app.use(userRoutes)
 app.use(plantCollectionRoutes)
 app.use(plantRoutes)
+app.use(logRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
