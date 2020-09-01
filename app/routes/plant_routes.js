@@ -13,22 +13,7 @@ const removeBlanks = require('../../lib/remove_blank_fields')
 
 const requireToken = passport.authenticate('bearer', { session: false })
 
-// GET all plant info
-
-router.get('/plantCollections/:plantCollectionId/plants', requireToken, (req, res, next) => {
-  const plantCollectionId = req.params.plantCollectionId
-
-  PlantCollection.findById(plantCollectionId)
-    .populate('plants')
-    .then(plants => {
-      return plants.map(plant => plant.toObject())
-    })
-    .then(plants => res.status(200).json({plants: plants}))
-    .catch(next)
-})
-
 // GET one plant info
-
 router.get('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, (req, res, next) => {
   const plantCollectionId = req.params.plantCollectionId
   const plantId = req.params.plantId
@@ -61,7 +46,6 @@ router.post('/plants', requireToken, (req, res, next) => {
 // UPDATE plant info
 router.patch('/plantCollections/:plantCollectionId/plants/:plantId', requireToken, removeBlanks, (req, res, next) => {
   delete req.body.plant.owner
-
   const plantId = req.params.plantId
   const plantData = req.body.plant
   const plantCollectionId = req.params.plantCollectionId
